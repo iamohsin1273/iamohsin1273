@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 170" width="900" height="170" role="img" aria-label="Animated CI/CD pipeline: Code, Build, Test, Scan, Deploy">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f2027"/>
+      <stop offset="0.5" stop-color="#203a43"/>
+      <stop offset="1" stop-color="#2c5364"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00d4ff"/>
+      <stop offset="1" stop-color="#7cffb2"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      text { font-family: 'Segoe UI', Arial, sans-serif; fill: #e8f6ff; }
+      .title { font-size: 13px; letter-spacing: 3px; fill: #7fdcff; }
+      .label { font-size: 14px; font-weight: 600; text-anchor: middle; }
+      .icon  { font-size: 22px; text-anchor: middle; }
+      .node  { fill: #0b1a22; stroke: url(#line); stroke-width: 2; }
+      .track { stroke: #2f5666; stroke-width: 3; stroke-dasharray: 6 6; fill: none; }
+
+      .flow { stroke: url(#line); stroke-width: 3; fill: none; stroke-dasharray: 14 886; stroke-linecap: round;
+              animation: run 4s linear infinite; filter: url(#glow); }
+      @keyframes run { from { stroke-dashoffset: 14; } to { stroke-dashoffset: -886; } }
+
+      .n { animation: pulse 4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+      .n1 { animation-delay: 0s; }
+      .n2 { animation-delay: 0.8s; }
+      .n3 { animation-delay: 1.6s; }
+      .n4 { animation-delay: 2.4s; }
+      .n5 { animation-delay: 3.2s; }
+      @keyframes pulse {
+        0%, 20%, 100% { transform: scale(1); stroke-width: 2; }
+        8% { transform: scale(1.12); stroke-width: 4; }
+      }
+      .ok { animation: blink 4s ease-in-out infinite; }
+      @keyframes blink { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+    </style>
+  </defs>
+
+  <rect width="900" height="170" rx="16" fill="url(#bg)"/>
+  <text x="450" y="28" class="title" text-anchor="middle">COMMIT  →  PRODUCTION</text>
+
+  <!-- track + moving pulse -->
+  <path class="track" d="M110 90 H790"/>
+  <path class="flow" d="M110 90 H790" pathLength="900"/>
+
+  <!-- nodes -->
+  <g>
+    <circle class="node n n1" cx="110" cy="90" r="30"/>
+    <text class="icon" x="110" y="98">💻</text>
+    <text class="label" x="110" y="143">Code</text>
+  </g>
+  <g>
+    <circle class="node n n2" cx="280" cy="90" r="30"/>
+    <text class="icon" x="280" y="98">🔧</text>
+    <text class="label" x="280" y="143">Build</text>
+  </g>
+  <g>
+    <circle class="node n n3" cx="450" cy="90" r="30"/>
+    <text class="icon" x="450" y="98">🧪</text>
+    <text class="label" x="450" y="143">Test</text>
+  </g>
+  <g>
+    <circle class="node n n4" cx="620" cy="90" r="30"/>
+    <text class="icon" x="620" y="98">🛡️</text>
+    <text class="label" x="620" y="143">Scan</text>
+  </g>
+  <g>
+    <circle class="node n n5" cx="790" cy="90" r="30"/>
+    <text class="icon" x="790" y="98">🚀</text>
+    <text class="label" x="790" y="143">Deploy</text>
+  </g>
+
+  <!-- status dots -->
+  <circle class="ok" cx="136" cy="64" r="5" fill="#7cffb2" style="animation-delay:0s"/>
+  <circle class="ok" cx="306" cy="64" r="5" fill="#7cffb2" style="animation-delay:.8s"/>
+  <circle class="ok" cx="476" cy="64" r="5" fill="#7cffb2" style="animation-delay:1.6s"/>
+  <circle class="ok" cx="646" cy="64" r="5" fill="#7cffb2" style="animation-delay:2.4s"/>
+  <circle class="ok" cx="816" cy="64" r="5" fill="#7cffb2" style="animation-delay:3.2s"/>
+</svg>
